@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
 function DateCounter() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
   const date = new Date("june 21 2027");
   date.setDate(date.getDate() + count);
+
+  const handleReset = () => {
+    setStep(1);
+    setCount(0);
+  };
 
   return (
     <div className="dateCount">
@@ -13,6 +18,7 @@ function DateCounter() {
           type="range"
           min={0}
           max={10}
+          value={step}
           onChange={(e) => setStep(Number(e.target.value))}
         ></input>
         <p>step:{step}</p>
@@ -41,6 +47,9 @@ function DateCounter() {
           <span>{date.toDateString()}</span>
         </div>
       </div>
+      {count !== 1 || step !== 0 ? (
+        <button onClick={handleReset}>Reset</button>
+      ) : null}
     </div>
   );
 }
