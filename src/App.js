@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DateCounter from "./DateCounter";
 
 const messages = [
   "Learn React ⚛️",
@@ -8,8 +9,9 @@ const messages = [
 
 export default function App() {
   return (
-    <div className="">
+    <div>
       <Steps />
+      <DateCounter />
       <StepMessage step={1}>
         <p>Pass in content</p>
         👍🏻
